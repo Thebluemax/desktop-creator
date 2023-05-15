@@ -1,0 +1,123 @@
+<form [formGroup]="optionForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>New Fresh {{typeForm}} Launcher</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="box">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Generic Name" formControlName="genericName">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Icon" formControlName="icon">
+            <mat-error *ngIf="optionForm.controls['icon'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-icon [inline]="true"
+          matTooltip="Icon to display in file manager, menus, etc. If the name is an absolute path, the given file will be used. If the name is not an absolute path, the algorithm described in the Icon Theme Specification will be used to locate the icon. "
+         [matTooltipPosition]="'right'">help</mat-icon>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="exec" formControlName="exec">
+            <mat-error *ngIf="optionForm.controls['exec'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
+            <mat-error *ngIf="optionForm.controls['comment'].hasError('required')">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-slide-toggle formControlName="terminal">Terminal</mat-slide-toggle>
+        </div>
+        <div class="col">
+          <mat-slide-toggle formControlName="tryExec">Try Exec</mat-slide-toggle>
+          <mat-icon [inline]="true"
+          color="secondary"
+          matTooltip="Path to an executable file on disk used to determine if the program is actually installed. If the path is not an absolute path, the file is looked up in the $PATH environment variable. If the file is not present or if it is not executable, the entry may be ignored (not be used in menus, for example). "
+         [matTooltipPosition]="'right'">help</mat-icon>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="encoding" formControlName="encoding">
+              <mat-option *ngFor="let encodingText of encodingList" [value]="encodingText">
+                {{ encodingText }}
+                            </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="version" formControlName="version">
+              <mat-option *ngFor="let version of versions" [value]="version">
+                {{ version }}
+              </mat-option>
+            </mat-select>
+
+            <mat-error *ngIf="optionForm.controls['version'].hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-icon [inline]="true"
+           matTooltip="Version of the Desktop Entry Specification that the desktop entry conforms with. Entries that confirm with this version of the specification should use 1.5. Note that the version field is not required to be present. "
+          [matTooltipPosition]="'right'">help</mat-icon>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="categories" formControlName="categories">
+              <mat-option *ngFor="let category of mainCategories" [value]="category.name">
+                {{ category.name }} - {{category.description}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="optionForm.controls['categories'].hasError('required')">
+              State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-icon [inline]="true"
+           matTooltip="This section contains a number of well known categories and suggestions on how to use them. The list of Main Categories consist of those categories that every conforming desktop environment MUST support. By including one of these categories in an application's desktop entry file the application will be ensured that it will show up in a section of the application menu dedicated to this category. "
+          [matTooltipPosition]="'right'">help</mat-icon>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput  placeholder="keywords" type="text"
+            formControlName="keywords">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="optionForm.invalid">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

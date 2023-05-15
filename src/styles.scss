@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+// always include only once per project
+//@include mat-core();
+
+// import our custom theme
+@import './assets/scss/theme.scss';
+
+// specify theme class eg: <body class="my-theme"> ... </body>
+
+$custom-typography: mat-typography-config($font-family: '"Spartan", sans-serif;');
+@include mat-core($custom-typography);
+.my-theme {
+
+  // use our theme with angular-material-theme mixin
+  @include angular-material-theme($my-theme);
+}
+
+html, body { height: 100%;
+margin: 0px; }
+.box {
+  width: 95%;
+  padding: 4% 0px 0px 0px;
+  margin: auto;
+}
+.full-width{
+  width: 90%;
+}
+.bg-orange{
+  background-color: map-get($ubuntu-orange-palette,600) !important;
+  color: map-get($dark-teal-palette, 50) !important;
+}
+.bg-aubergine{
+  background-color: map-get($aubergine-palette,700) !important;
+  color: map-get($aubergine-palette, 50) !important;
+}
+.active-link {
+  background-color: map-get($ubuntu-orange-palette,400) !important;
+  color: #000 !important;
+}
+
+.mat-dialog-title {
+  background-color: map-get($ubuntu-orange-palette,600) !important;
+  color: #fff !important;
+}
+.mat-dialog-actions {
+  background-color: map-get($aubergine-palette,700) !important;
+  color: map-get($aubergine-palette, 50) !important;
+}

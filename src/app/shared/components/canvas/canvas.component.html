@@ -1,0 +1,12 @@
+<div style="width:512px">
+  <div>
+    <canvas #canvasEl width={{canvasWidth}} height={{canvasHeigth}}></canvas>
+  </div>
+  <span class="legend">{{canvasWidth}} x {{canvasHeigth}}</span>
+  <button mat-icon-button color="primary"
+  aria-label="Example icon button with a home icon"
+  (click)="toDisk()">
+    <mat-icon>home</mat-icon>
+  </button>
+  <app-download-button #downloadButton [url]="url"></app-download-button>
+</div>

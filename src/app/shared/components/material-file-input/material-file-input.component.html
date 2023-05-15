@@ -1,0 +1,13 @@
+<mat-form-field>
+  <div class="fileControl-wrapper">
+    <mat-toolbar>
+      <input matInput [(ngModel)]="uploadFileName" readonly name="File" />
+
+      <button mat-flat-button color="accent">Pick File</button>
+    </mat-toolbar>
+
+    <input type="file" #uploadControl id="fileControlInput"
+    (change)="onFileChange($event)" name="fileControlInput"
+     accept="text/*" />
+  </div>
+</mat-form-field>

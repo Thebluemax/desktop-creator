@@ -1,0 +1,66 @@
+<div fxLayoutGap="10px">
+  <div class="box">
+    <div fxLayout="row" fxLayoutAlign="start">
+      <div fxFlex="70">
+        <h2>Manage the Icon</h2>
+      </div>
+      <div fxFlex="30">
+       <!-- <app-material-file-input (fileEvent)="proccessFile($event)"></app-material-file-input>-->
+        <button mat-flat-button color="primary" (click)="chooseFile()">
+          Download Image File
+          <mat-icon>
+           image
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <hr>
+    <div class="box">
+      <app-loading [isLoading]="loading"></app-loading>
+      <div fxLayout="row" fxLayoutAlign="space-around start">
+        <div fxFlex="60">
+          <div class="fom-conf">
+            <form [formGroup]="form">
+              <div fxLayout="row" fxLayoutAlign="space-around start">
+              <div fxFlex="50">
+                <mat-form-field class="example-full-width"
+                color="primary" appearance="fill">
+                  <mat-label>Icon File Name</mat-label>
+                  <input matInput placeholder="Ex. Pizza" formControlName="filename">
+                </mat-form-field>
+              </div>
+              <div fxFlex="50">
+                <label id="crop-radio-group-label">Choose Crop Position</label>
+                <mat-radio-group aria-labelledby="crop-radio-group-label"
+                class="crop-radio-group" formControlName="position" >
+                  <mat-radio-button class="crop-radio-button"
+                   *ngFor="let season of ['start', 'center','end']"
+                    [value]="season" (change)="radioChange($event)">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div class="img-container" *ngIf="ready">
+            <img [src]="imageBase | safeUrl" alt="" width="80%" #imgElement>
+            <div class="img-legend">
+              <p>{{realWidth}}x{{realHeight}}</p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="ready">
+          <div class="scrollwindow" fxLayoutGap="15px">
+            <ng-container *ngFor="let item of iconsSize">
+              <app-canvas [canvasHeigth]="item" [canvasWidth]="item"></app-canvas>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>

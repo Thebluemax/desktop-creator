@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()">
+    <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div *ngFor="let entry of entriesList | keyvalue" fxFlex="{{entry.key.includes('comment') ? 'grow' :'50'}}">
+
+      <div style="width:100%" [ngSwitch]="entry.key">
+
+              <mat-form-field class="full-width" *ngSwitchCase="'comment'" >
+                <textarea matInput placeholder="Comment" [formControlName]="entry.key"></textarea>
+              </mat-form-field>
+
+
+            <mat-form-field *ngSwitchDefault class="full-width">
+              <input matInput placeholder="{{entry.key}}"
+              [formControlName]="entry.key"
+              >
+              <!--<mat-error *ngIf="optionForm.controls['icon'].hasError('required')">
+                First name is <strong>required</strong>
+              </mat-error>-->
+            </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+</form>

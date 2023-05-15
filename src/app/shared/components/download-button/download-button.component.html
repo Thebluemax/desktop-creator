@@ -1,0 +1,16 @@
+<div class="btn-container">
+  <button  mat-fab  [color]="!canDownload ? 'secondary' : 'primary'"
+  [disabled]="!canDownload"
+  (click)="download()"
+  aria-label="Example icon button with a filter list icon">
+  <div *ngIf="!isLoading;else templateName">
+    <mat-icon>
+      file_download
+    </mat-icon>
+    <a [href]="url | safeUrl" #linkA download="{{filename}}"></a>
+  </div>
+  <ng-template #templateName>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  </button>
+</div>

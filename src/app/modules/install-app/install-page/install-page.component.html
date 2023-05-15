@@ -1,0 +1,18 @@
+<div fxLayoutGap="10px">
+  <div class="box">
+    <div fxLayout="row" fxLayoutAlign="start">
+      <div fxFlex="70">
+        <h2>Manage the Icon</h2>
+      </div>
+      <div fxFlex="30">
+        <!-- <app-material-file-input (fileEvent)="proccessFile($event)"></app-material-file-input>-->
+        <button mat-flat-button color="primary" (click)="chooseFile()">
+          Download Image File
+          <mat-icon>
+            image
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

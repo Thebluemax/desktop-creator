@@ -1,0 +1,19 @@
+<div fxLayoutGap="10px">
+  <div class="box">
+    <app-material-file-input
+    (fileEvent)="proccessFile($event)"></app-material-file-input>
+    <button mat-button (click)="getDesktop()">gg</button>
+    <div>
+      <div class="box">
+
+        <mat-tab-group>
+          <mat-tab label="Form">
+            <app-runtime-form [entriesList]="finalList"
+            [formGroup]="form"></app-runtime-form>
+          </mat-tab>
+          <mat-tab label="Raw"> <pre>{{desktopEntryText}}</pre> </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

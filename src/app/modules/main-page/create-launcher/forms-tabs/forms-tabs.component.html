@@ -1,0 +1,37 @@
+<div class="bg-aubergine ">
+  <div class="box">
+    <div fxlayout="row" fxlayoutalign="start none">
+      <div fxFlex="80">
+        <h2>Pin a launcher-builder</h2>
+      </div>
+      <div fxFlex="20">
+        <app-download-button #downloadButton [url]="url"></app-download-button>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div>
+    <mat-divider></mat-divider>
+    <div class="box">
+      <mat-tab-group (selectedIndexChange)="changeTab($event)">
+        <mat-tab *ngFor="let typeLauncher of types;let indx=index" label="{{typeLauncher}}">
+          <div [ngSwitch]="indx">
+            <app-form-app *ngSwitchCase="0" [typeForm]="typeLauncher" (desktopEntry)="proccessEntry($event)">
+            </app-form-app>
+            <app-form-link *ngSwitchCase="1" [typeForm]="typeLauncher" (desktopEntry)="proccessEntry($event)">
+            </app-form-link>
+            <div *ngSwitchDefault></div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Edit Laucher">
+          <div>
+            <app-edit-tab></app-edit-tab>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>

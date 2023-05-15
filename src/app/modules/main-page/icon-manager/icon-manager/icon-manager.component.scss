@@ -1,0 +1,31 @@
+.img-container{
+  img {
+    display: block;
+    margin: 0px auto;
+  }
+  .img-legend{
+    background-color: goldenrod;
+    box-sizing: border-box;
+    display: block;
+    color: white;
+    margin: 0px auto;
+    padding:5px;
+    width: 80%;
+  }
+}
+
+.crop-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.crop-radio-button {
+  margin: 5px;
+}
+.scrollwindow{
+  height: 350px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

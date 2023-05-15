@@ -1,0 +1,20 @@
+<h1 mat-dialog-title color="primary">Hi </h1>
+<div mat-dialog-content>
+  <h2>Lsit</h2>
+  <app-breadcrumb [listButtons]="pathArray"
+  (changePath)="changePath($event)"></app-breadcrumb>
+  <p>What's your favorite animal?</p>
+  <div class="box">
+    <mat-list>
+      <app-item-file *ngFor="let item of fileList"
+      [filename]="item"
+      [base]="basePath"
+      (chooseFile)="getItem($event)"
+      (chooseFolder)="getFolder($event)"></app-item-file>
+    </mat-list>
+  </div>
+</div>
+<div mat-dialog-actions color="secondary">
+  <button mat-button>No Thanks</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</div>

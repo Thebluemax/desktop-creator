@@ -1,0 +1,10 @@
+<div fxLayout="row">
+  <div>
+    <span
+    *ngFor="let item of linkList">/
+    <a (click)="setPath($event,item.path)" href="#">
+      {{item.name}}
+    </a>
+  </span>
+  </div>
+</div>

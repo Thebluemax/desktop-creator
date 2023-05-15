@@ -1,0 +1,61 @@
+<form [formGroup]="optionForm" (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>New Fresh {{typeForm}} Launcher</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="box">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="encoding" formControlName="encoding">
+              <mat-option *ngFor="let encodingText of encodingList" [value]="encodingText">
+                {{ encodingText }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Url" formControlName="url">
+            <mat-error *ngIf="optionForm.controls['url'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Exec" formControlName="exec">
+              <mat-option *ngFor="let browser of browsersList"
+              [value]="browser.exec">{{browser.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="optionForm.controls['icon'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Icon" formControlName="icon">
+            <mat-error *ngIf="optionForm.controls['icon'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit II</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

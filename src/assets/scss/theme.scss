@@ -1,0 +1,95 @@
+// define 3 theme color
+@use '@angular/material' as mat;
+$aubergine-palette: (
+ 50: #ffdce6,
+ 100: #e3b6c6,
+ 200: #be8ca0,
+ 300: #9b6379,
+ 400: #81455f,
+ 500: #692745,
+ 600: #5d203f,
+ 700: #4d1632,
+ 800: #3c0b29,
+ 900: #2c001e,
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+   // ... continues to 900
+ )
+);
+$dark-teal-palette: (
+ 50: #ddece6,
+ 100: #add1bf,
+ 200: #7bb497,
+ 300: #4d9671,
+ 400: #308259,
+ 500: #1a6e44,
+ 600: #308259,
+ 700: #10552f,
+ 800: #074624,
+ 900: #002c0e,
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+   // ... continues to 900
+ )
+);
+$ubuntu-orange-palette: (
+ 50: #f9e9e7,
+ 100: #fbccbc,
+ 200: #f9ab91,
+ 300: #f68b65,
+ 400: #f57244,
+ 500: #f45b24,
+ 600: #e95620,
+ 700: #db4f1b,
+ 800: #cd4818,
+ 900: #b43c11,
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+   // ... continues to 900
+ )
+);
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$my-theme-primary: mat-palette($ubuntu-orange-palette, 700, 300, 900);
+$my-theme-secondary: mat-palette($aubergine-palette,700,700, 700);
+$my-theme-accent: mat-palette($mat-teal);
+$my-theme-warn: mat-palette($mat-red, A200);
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-theme-primary,
+    secondary: $my-theme-secondary,
+    accent: $my-theme-accent,
+    warn: $my-theme-warn,
+  )
+ ));
